@@ -41,7 +41,7 @@ const TACHES = [
 function TodoList() {
   //state
   const [taches, setTaches] = useState(TACHES);
-  const [newtaches, setNewtaches] = useState("jean");
+  const [newtaches, setNewtaches] = useState("tache");
   const [tache, setTache] = useState("");
   const [tacheId, setTacheId] = useState("");
 
@@ -203,13 +203,10 @@ function TodoList() {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-danger"
                   data-bs-dismiss="modal"
                 >
-                  Close
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Save changes
+                  Fermer
                 </button>
               </div>
             </form>
