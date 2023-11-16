@@ -1,6 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-import TodoList from './pages/TodoList';
+import logo from "./logo.svg";
+import "./App.css";
+import TodoList from "./pages/TodoList";
+import {TodoProvider} from "./context/TodoContext";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <TodoList/>
+    <TodoProvider>
+      <TodoList />
+    </TodoProvider>
   );
 }
 

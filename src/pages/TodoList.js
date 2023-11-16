@@ -3,13 +3,22 @@ import TACHES from "../models/mock-user";
 import Modal from "../components/Modal";
 import Tache from "../components/Tache";
 import FormTache from "../components/FormTache";
+import { useTodoContext } from "../context/TodoContext";
 
 function TodoList() {
   //--->state
-  const [taches, setTaches] = useState(TACHES);
-
-  const [tache, setTache] = useState("");
-  const [tacheId, setTacheId] = useState("");
+  // const [taches, setTaches] = useState(TACHES);
+  // const [tache, setTache] = useState("");
+  // const [tacheId, setTacheId] = useState("");
+  const {
+    taches,
+    setTaches,
+    tache,
+    setTache,
+    tacheId,
+    setTacheId,
+    // Ajoutez d'autres fonctions si nécessaire
+  } = useTodoContext();
 
   //--->comportement
 
@@ -20,17 +29,18 @@ function TodoList() {
     setTaches(newTachesUpdate);
   };
 
+    const handelAddTache = (data) => {
+    const copyTaches = [...taches];
+    copyTaches.push(data); // Utilisez
+    setTaches(copyTaches);
+  };
+
   //selectionner pour modification
   const handleEdit = (id) => {
     console.log(id);
     const tache = taches.find((tache) => tache.id == id);
     setTacheId(id);
     setTache(tache);
-  };
-  const handelAddTache = (data) => {
-    const copyTaches = [...taches];
-    copyTaches.push(data); // Utilisez
-    setTaches(copyTaches);
   };
 
   //modification du prompte de modification
@@ -77,6 +87,7 @@ function TodoList() {
           ))}
         </tbody>
       </table>
+
       <Modal
         handleUpdateModal={handleUpdate}
         handleChangeTacheModal={handleChangeTache}
