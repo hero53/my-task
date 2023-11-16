@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import TACHES from "../models/mock-user";
 import Modal from "../components/Modal";
 import Tache from "../components/Tache";
 import FormTache from "../components/FormTache";
@@ -7,9 +5,6 @@ import { useTodoContext } from "../context/TodoContext";
 
 function TodoList() {
   //--->state
-  // const [taches, setTaches] = useState(TACHES);
-  // const [tache, setTache] = useState("");
-  // const [tacheId, setTacheId] = useState("");
   const {
     taches,
     setTaches,
